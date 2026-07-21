@@ -1,7 +1,12 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib
+try:
+    import joblib
+    print("JOBLIB OK")
+except Exception as e:
+    print(e)
+    raise
 import plotly.express as px
 from pathlib import Path
 
