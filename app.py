@@ -221,15 +221,15 @@ with tab2:
         st.info("Please upload a radiomics dataset in the Dataset tab first.")
         st.stop()
 
-    required_cols={"patient_id","label"}
+    required_cols={"patient_id"}
 
     if not required_cols.issubset(df.columns):
-        st.error("Dataset must contain 'patient_id' and 'label' columns.")
+        st.error("Dataset must contain 'patient_id' columns.")
         st.stop()
 
     patient_id=df["patient_id"]
 
-    X=df.drop(columns=["patient_id","label"],errors="ignore")
+    X=df.drop(columns=["patient_id"],errors="ignore")
 
     missing_features=[col for col in feature_columns if col not in X.columns]
     extra_features=[col for col in X.columns if col not in feature_columns]
